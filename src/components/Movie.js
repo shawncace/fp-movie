@@ -1,7 +1,7 @@
 
-const Movie = () => {
+const Movie = ({movies}) => {
   return (  
-    <div>Movie</div>
+    <div>{movies.title}</div>
   );
 }
  
