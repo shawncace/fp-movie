@@ -27,9 +27,10 @@ function App() {
   },[])
   
   return (
-    <div>
+    <>
+      <Header />
       <Movie movies={movies} />
-    </div>
+    </>
   );
 }
 
