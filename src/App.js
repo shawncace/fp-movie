@@ -28,12 +28,7 @@ function App() {
   
   return (
     <div>
-      {movies.map((movie)=>(
-        // <Movie movies={movies}/>
-        <>
-          <p>{movie.title}</p>
-        </>
-      ))}
+      <Movie movies={movies} />
     </div>
   );
 }

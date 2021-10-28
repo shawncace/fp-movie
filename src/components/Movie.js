@@ -1,7 +1,13 @@
 
 const Movie = ({movies}) => {
   return (  
-    <div>{movies.title}</div>
+    <>
+      {movies.map((movie)=>(
+        <p key={movie.id}>
+          {movie.title}
+        </p>
+      ))}
+    </>
   );
 }
  
