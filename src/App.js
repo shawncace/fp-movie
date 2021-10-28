@@ -1,9 +1,11 @@
 import{useState,useEffect} from 'react'
 
 import Movie from "./components/Movie";
+import Header from './components/Header';
 
 function App() {
   const [movies, setMovies]=useState([])
+  const [searchTerm, setSearchTerm]=useState('')
 
   const getMovies = async()=>{
     const url = 'https://api.themoviedb.org/3/movie/550?api_key=7f919e4b3db2895f7100385f409e09a1'
@@ -15,20 +17,25 @@ function App() {
 
     console.log(data.results)
     setMovies(data.results)
-    
-    
-    
   }
-
-  
 
   useEffect(()=>{
     getMovies()
   },[])
+
+  const handleOnSubmit = (e)=>{
+    e.preventDefault()
+    console.log('t')
+  }
+
+  
   
   return (
     <>
-      <Header />
+      <Header handleOnSubmit={handleOnSubmit} 
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+      />
       <Movie movies={movies} />
     </>
   );
