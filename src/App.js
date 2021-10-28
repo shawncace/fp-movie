@@ -7,12 +7,13 @@ function App() {
   const [movies, setMovies]=useState([])
   const [searchTerm, setSearchTerm]=useState('')
 
-  const getMovies = async()=>{
-    const url = 'https://api.themoviedb.org/3/movie/550?api_key=7f919e4b3db2895f7100385f409e09a1'
+  const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=7f919e4b3db2895f7100385f409e09a1&query='
 
-    const urlSearch = 'https://api.themoviedb.org/3/search/movie?api_key=7f919e4b3db2895f7100385f409e09a1&query=star%20wars'
+  const urlSearch = 'https://api.themoviedb.org/3/search/movie?api_key=7f919e4b3db2895f7100385f409e09a1&query=star%20wars'
 
-    const response = await fetch(urlSearch)
+  const getMovies = async(newLink)=>{
+    
+    const response = await fetch(newLink)
     const data = await response.json()
 
     console.log(data.results)
@@ -20,12 +21,14 @@ function App() {
   }
 
   useEffect(()=>{
-    getMovies()
+    getMovies(urlSearch)
   },[])
 
   const handleOnSubmit = (e)=>{
     e.preventDefault()
-    console.log('t')
+    getMovies(SEARCH_API+searchTerm)
+
+    setSearchTerm('')
   }
 
   

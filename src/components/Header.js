@@ -1,8 +1,6 @@
 
 const Header = ({handleOnSubmit, searchTerm, setSearchTerm}) => {
-  function handleChange (e){
-    setSearchTerm(e.target.value)
-  }
+  
   
   return (  
     <form onSubmit={handleOnSubmit}>
@@ -11,8 +9,9 @@ const Header = ({handleOnSubmit, searchTerm, setSearchTerm}) => {
              placeholder='Search....'
              className='search'
              value={searchTerm}
-            //  onChange={(e)=>setSearchTerm(e.target.value)}
-            onChange={(e)=>handleChange}
+             onChange={(e)=>setSearchTerm(e.target.value)}
+            
+            
         />
       </header>
     </form>
